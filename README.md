@@ -3,7 +3,8 @@
 
 # Mongoose Facets
 
-Facet injection for your [Mongoose](http://mongoosejs.com/) models.
+Facet injection for your [Mongoose](http://mongoosejs.com/) models.  Read more
+about [facets in MongoDB](https://medium.com/@danieldkim/facets-in-mongodb-be2795144d5a#.lcc88xe0u).
 
 ## Installation
 
