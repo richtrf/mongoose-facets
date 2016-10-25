@@ -1,0 +1,37 @@
+{
+  "name": "mongoose-facets",
+  "description": "Facet injection for mongoose models",
+  "homepage": "https://github.com/danieldkim/mongoose-facets",
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "facet",
+    "inheritance",
+    "dependency injection"
+  ],
+  "author": "Daniel Kim <danieldkimster@gmail.com>",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danieldkim/mongoose-facets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danieldkim/mongoose-facets/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/danieldkim/mongoose-facets/raw/master/LICENSE"
+    }
+  ],
+  "devDependencies": {
+    "co": "^4.6.0",
+    "lodash": "~4.16.4",
+    "mocha": "~3.1.2",
+    "q": "^1.4.1"
+  },
+  "dependencies": {
+    "underscore.string": "^3.3.4",
+    "mongoose": "~4.4.12"
+  }
+}
