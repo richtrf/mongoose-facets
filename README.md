@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/danieldkim/mongoose-facets.svg?branch=master)](https://travis-ci.org/danieldkim/mongoose-facets)
+
 # Mongoose Facets
 
 Facet injection for your [Mongoose](http://mongoosejs.com/) models.
