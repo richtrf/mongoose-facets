@@ -61,7 +61,7 @@ describe('FacetPlugin', function() {
     const aFacetName = 'a facet name';
     p.facets.a = new AFacet({name: aFacetName});
     p = yield saveAndReload(p);
-    assert.equal(aFacetName, p.facets.a.name);
+    assert.equal(p.facets.a.name, aFacetName);
 
     // facet property, set subfacet array
     p.facets.a.setSubs(['foo', 'bar']);
@@ -82,21 +82,21 @@ describe('FacetPlugin', function() {
     // subfacet array element property
     p.facets.a.subFacets[0].name = 'barfoo';
     p = yield saveAndReload(p);
-    assert.equal('barfoo', p.facets.a.subFacets[0].name);
+    assert.equal(p.facets.a.subFacets[0].name, 'barfoo');
   }));
 
   it('should set parent on facets', co.wrap(function*() {
     let p = new Parent();
     let a = p.facets.a = new AFacet();
     let b = p.facets.b = new BFacet();
-    assert.equal(p, a.parent);
-    assert.equal(p, p.facets.a.parent);
-    assert.equal(p, b.parent);
-    assert.equal(p, p.facets.b.parent);
+    assert.equal(a.parent, p);
+    assert.equal(p.facets.a.parent, p);
+    assert.equal(b.parent, p);
+    assert.equal(p.facets.b.parent, p);
 
     p = yield saveAndReload(p);
-    assert.equal(p, p.facets.a.parent);
-    assert.equal(p, p.facets.b.parent);
+    assert.equal(p.facets.a.parent, p);
+    assert.equal(p.facets.b.parent, p);
   }));
 
   it('should set facet flags on parent', co.wrap(function*() {

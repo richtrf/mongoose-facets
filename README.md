@@ -83,7 +83,7 @@ A `parent` property will be automagically added to each facet:
 ```javascript
 Parent p = new Parent();
 p.facets.foo = new FooFacet();
-assert.equal(p, p.facets.foo.parent, "Parent not set properly");
+assert.equal(p.facets.foo.parent, p, "Parent not set properly");
 ```
 
 ## License
