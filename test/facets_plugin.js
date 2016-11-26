@@ -42,14 +42,14 @@ function* saveAndReload(p) {
 
 describe('FacetPlugin', function() {
   it('should apply indexes', co.wrap(function*() {
-    assert.ok(_.isEqual(indexes, Parent.indexes));
+    assert.deepEqual(Array.prototype.slice.call(indexes), Parent.indexes);
 
     // now try with function
     delete require.cache[require.resolve('./Parent')];
     delete mongoose.models.Parent;
     indexes.setAsFunction(facetKeys => facetKeys.map(k=>[`foo.${k}`, `bar.${k}`]));
     Parent = require('./Parent');
-    assert.ok(_.isEqual([['foo.a', 'bar.a'], ['foo.b', 'bar.b']], Parent.indexes));
+    assert.deepEqual([['foo.a', 'bar.a'], ['foo.b', 'bar.b']], Parent.indexes);
   }));
 
 
@@ -66,18 +66,18 @@ describe('FacetPlugin', function() {
     // facet property, set subfacet array
     p.facets.a.setSubs(['foo', 'bar']);
     p = yield saveAndReload(p);
-    assert.ok(_.isEqual(
+    assert.deepEqual(
       [{name: 'foo'}, {name:'bar'}],
       p.facets.a.subFacets.toObject()
-    ));
+    );
 
     // facet property, push subfacet array
     p.facets.a.pushSub('foobar');
     p = yield saveAndReload(p);
-    assert.ok(_.isEqual(
+    assert.deepEqual(
       [{name: 'foo'}, {name:'bar'}, {name: 'foobar'}],
       p.facets.a.subFacets.toObject()
-    ));
+    );
 
     // subfacet array element property
     p.facets.a.subFacets[0].name = 'barfoo';
