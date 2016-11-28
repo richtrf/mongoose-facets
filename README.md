@@ -46,7 +46,7 @@ Parent p2 = yield Parent.create({name: 'joe jones'});
 // find parents with a foo facet and whose name starts with 'joe'
 const results = yield Parent.find({'facetFlags.foo': true, name: /^joe/}).exec();
 // only p1 is returned
-assert.ok(_.isEqual([p1.id], results.map(p=>p.id)), "Only p1 should be found");
+assert.deepEqual(results.map(p=>p.id), [p1.id] "Only p1 should be found");
 ```
 
 The directory containing the facets can also include a file called
